@@ -1,0 +1,16 @@
+Place finished/exported PNG sprites here.
+
+Files expected by the game:
+  camera.png        — 48×48 camera head sprite (flying state)
+  camera-hit.png    — 48×48 camera, hit/glitch state
+  camera-fall.png   — 48×48 camera, falling state (tilted)
+  camera-pole.png   — optional: combined camera+pole sprite
+  bullet.png        — shot indicator icon for HUD       ✓ (from game-assets-src)
+  hud-camera.png    — round/camera icon for HUD         ✓ (from game-assets-src)
+  game-title.png    — title screen logo                 ✓ (from game-assets-src)
+  tree-bg.png       — far background trees              ✓ (from game-assets-src)
+  bush-bg.png       — mid background bushes             ✓ (from game-assets-src)
+  grass-bg.png      — ground/sky background             ✓ (from game-assets-src)
+  grass.png         — foreground grass strip (drawn IN FRONT of cameras)   ✓
+
+Copy the matching files from ../game-assets-src/ and rename as needed.

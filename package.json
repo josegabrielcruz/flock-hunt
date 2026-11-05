@@ -1,0 +1,22 @@
+{
+  "name": "flock-hunt",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.13",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "howler": "^2.2.4"
+  }
+}

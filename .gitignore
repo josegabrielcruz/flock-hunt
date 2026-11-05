@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.DS_Store
+game-assets-src/
+FEATURE_UPDATES.md

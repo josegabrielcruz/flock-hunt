@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Flock Hunt</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; overflow: hidden; background: #0a0a0a; display: flex; align-items: center; justify-content: center; }
+      canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; touch-action: none; }
+
+      #game-wrap {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      #sound-toggle {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        opacity: 0.85;
+        transition: opacity 0.15s ease, transform 0.1s ease;
+      }
+      #sound-toggle:hover  { opacity: 1; }
+      #sound-toggle:active { transform: scale(0.9); }
+
+      #sound-toggle img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        pointer-events: none;
+      }
+
+      /* visibility driven by aria-pressed: true = sound ON */
+      #sound-toggle[aria-pressed="true"]  .sound-off { display: none; }
+      #sound-toggle[aria-pressed="false"] .sound-on  { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="game-wrap">
+      <canvas id="game"></canvas>
+      <button
+        id="sound-toggle"
+        aria-label="Toggle sound"
+        aria-pressed="true"
+      >
+        <img class="sound-on"  src="/images/sound-on.png"  alt="Sound on"  />
+        <img class="sound-off" src="/images/sound-off.png" alt="Sound off" />
+      </button>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
