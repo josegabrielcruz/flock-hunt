@@ -86,6 +86,7 @@ export class Game {
       const inSkeet  = pos.x >= MODE_SKEET_BTN_X  && pos.x <= MODE_SKEET_BTN_X  + MODE_BTN_W &&
                        pos.y >= MODE_BTN_Y && pos.y <= MODE_BTN_Y + MODE_BTN_H
       if (!inCamera && !inSkeet) return
+      if (inSkeet) return  // clay shooting not yet available
       this.gameMode = inCamera ? 'cameras' : 'skeet'
       this.gameStarting = true
       this.canvas.style.cursor = 'none'

@@ -16,7 +16,7 @@ Shoot surveillance cameras before they cross the screen. Rack up points across 5
 
 Two game modes:
 - **Camera Hunt** — cameras fly across the field; hit them before they escape
-- **Clay Shooting** — skeet-style targets arc across a different backdrop
+- **Clay Shooting** — skeet-style targets arc across a different backdrop (Coming Soon)
 
 ---
 

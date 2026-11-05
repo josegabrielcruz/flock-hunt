@@ -327,24 +327,30 @@ export class Renderer {
     ctx.font = '14px monospace'
     ctx.textAlign = 'center'
     ctx.fillText('SELECT A GAME MODE', GAME_W / 2, MODE_BTN_Y - 18)
-    this.drawModeButton(MODE_CAMERA_BTN_X, 'CAMERA HUNT')
-    this.drawModeButton(MODE_SKEET_BTN_X, 'CLAY SHOOTING')
+    this.drawModeButton(MODE_CAMERA_BTN_X, 'CAMERA HUNT', false)
+    this.drawModeButton(MODE_SKEET_BTN_X, 'CLAY SHOOTING', true)
   }
 
-  private drawModeButton(x: number, label: string): void {
+  private drawModeButton(x: number, label: string, disabled = false): void {
     const { ctx } = this
+    const color = disabled ? 'rgba(120, 120, 120, 0.5)' : 'rgba(223,141,62,1)'
     ctx.fillStyle = '#000000'
     ctx.beginPath()
     ctx.roundRect(x, MODE_BTN_Y, MODE_BTN_W, MODE_BTN_H, 8)
     ctx.fill()
-    ctx.strokeStyle = 'rgba(223,141,62,1)'
+    ctx.strokeStyle = color
     ctx.lineWidth = 2
     ctx.beginPath()
     ctx.roundRect(x, MODE_BTN_Y, MODE_BTN_W, MODE_BTN_H, 8)
     ctx.stroke()
-    ctx.fillStyle = 'rgba(223,141,62,1)'
+    ctx.fillStyle = color
     ctx.font = 'bold 16px monospace'
     ctx.textAlign = 'center'
     ctx.fillText(label, x + MODE_BTN_W / 2, MODE_BTN_Y + MODE_BTN_H / 2 + 6)
+    if (disabled) {
+      ctx.fillStyle = 'rgba(120, 120, 120, 0.6)'
+      ctx.font = '10px monospace'
+      ctx.fillText('COMING SOON', x + MODE_BTN_W / 2, MODE_BTN_Y + MODE_BTN_H / 2 + 18)
+    }
   }
 }
