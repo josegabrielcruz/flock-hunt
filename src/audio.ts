@@ -100,6 +100,17 @@ export class AudioManager {
     Howler.volume(volume);
   }
 
+  /** Resume a suspended AudioContext — must be called from a user gesture handler. */
+  public resumeContext(): void {
+    Howler.ctx?.resume();
+  }
+
+  /** True only when the active music track is audibly playing. */
+  public isMusicPlaying(): boolean {
+    if (!this.activeMusicName) return false;
+    return this.sounds.get(this.activeMusicName)?.playing() ?? false;
+  }
+
   public getMuted(): boolean {
     return this.isMuted;
   }

@@ -33,14 +33,20 @@ async function init(): Promise<void> {
   const game = new Game(ctx, sprites)
   const input = new InputHandler(canvas)
 
-  // Default: mute on touch devices (autoplay policies + battery), unmute on desktop
-  const isTouchDevice = navigator.maxTouchPoints > 0 || ('ontouchstart' in window)
-  game.audioManager.setMuted(isTouchDevice)
-  btn.setAttribute('aria-pressed', String(!isTouchDevice))
+  // Sound is off by default — clicking the button is the explicit opt-in gesture
+  game.audioManager.setMuted(true)
+  btn.setAttribute('aria-pressed', 'false')
 
   btn.addEventListener('click', () => {
     const nowMuted = game.audioManager.toggleMute()
     btn.setAttribute('aria-pressed', String(!nowMuted))
+    if (!nowMuted) {
+      // This click IS the required user gesture — resume AudioContext and start title music
+      game.audioManager.resumeContext()
+      if (game.state === 'title' && !game.audioManager.isMusicPlaying()) {
+        game.audioManager.playMusic('titleMusic')
+      }
+    }
   })
 
   input.onShot(pos => game.handleShot(pos))
