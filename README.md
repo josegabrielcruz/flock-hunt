@@ -6,7 +6,7 @@ A browser-based pixel art shooter built with TypeScript and the HTML Canvas API 
 
 ![Gameplay](public/images/flock-hunt-gameplay.png)
 
-**[Play it live →](https://josedcruz.github.io/flock-hunt/)**
+**[Play it live →](https://josegabrielcruz.github.io/flock-hunt/)**
 
 ---
 
